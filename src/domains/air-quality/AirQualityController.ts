@@ -5,6 +5,6 @@ export default class AirQuality {
   constructor(private readonly airQualityService: AirQualityService) {}
 
   async get(req: Request, res: Response) {
-    res.json(await this.airQualityService.get());
+    res.json(await this.airQualityService.getByNearestCity(1,2));
   }
 }
