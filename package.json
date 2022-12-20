@@ -1,9 +1,9 @@
 {
-  "name": "hoopofy",
+  "name": "Air Quality",
   "version": "0.0.1",
-  "description": "Hoopofy project",
+  "description": "Air Quality project",
   "main": "app/index.js",
-  "repository": "git@github.com:samyouaret/hoopofy.git",
+  "repository": "git@github.com:samyouaret/Air Quality.git",
   "author": "samyouaret <samyouaret13@gmail.com>",
   "license": "MIT",
   "private": true,
