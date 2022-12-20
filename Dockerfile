@@ -6,8 +6,6 @@ RUN chown -R node:node /app
 
 USER node
 
-ENV PORT=3000
-
 ENV HOST=http://localhost
 
 EXPOSE 3000
