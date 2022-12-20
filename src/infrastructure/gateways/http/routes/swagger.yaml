@@ -1,0 +1,58 @@
+swagger: "2.0"
+info:
+  description: "Air quality Api"
+  version: 1.0.0
+  title: Swagger Air quality YAML
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "samyouaret13@gmail.com"
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+basePath: /api
+tags:
+  - name: air-quality
+    description: Api about air quality
+    externalDocs:
+      description: Find out more
+      url: "http://swagger.io"
+schemes:
+  - http
+paths:
+  /air-quality:
+    get:
+      summary: Retrieve nearest air quality or by lat and lon.
+      description: Retrieve list to show all air-quality.
+      responses:
+        200:
+          description: A list of air-quality.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Result:
+                    type: object
+                    pollution:
+                      type: object
+                      properties:
+                        ts:
+                          type: date
+                          description: The date of record.
+                          example: "2021-04-12T00:00:00.000Z"
+                        aqius:
+                          type: integer
+                          description: Air quality index in US.
+                          example: 41
+                        mainus:
+                          type: string
+                          description: Main pollutant in US.
+                          example: "p2"
+                        aqicn:
+                          type: integer
+                          description: Air quality index in China.
+                          example: 16
+                        maincn:
+                          type: string
+                          description: Main pollutant in China.
+                          example: "p2"

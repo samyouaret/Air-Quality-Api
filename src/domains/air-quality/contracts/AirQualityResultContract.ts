@@ -6,11 +6,6 @@ export interface AirQualityResultContract {
             mainus: string;
             aqicn: number;
             maincn: string;
-            p1: {
-                conc: number;
-                aqius: number;
-                aqicn: number;
-            }
         }
     }
 }

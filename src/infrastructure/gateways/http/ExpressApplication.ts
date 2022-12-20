@@ -36,11 +36,6 @@ export default class ExpressApplication implements ApplicationGatewayContract
       const helmet = await import('helmet');
       this.server.use(helmet.default());
     }
-    if (this.config.openApiDoc) {
-      const swaggerUi = await import('swagger-ui-express');
-      // const { apiDoc } = await import('../http/open-api-docs/api');
-      // this.server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
-    }
     await this.loadRoutes(application);
   }
 
