@@ -2,16 +2,24 @@ FROM node:16-alpine
 
 WORKDIR /app
 
-COPY package*.json .
+RUN chown -R node:node /app
 
-COPY yarn.lock .
+USER node
 
-COPY . .
+ENV PORT=3000
+
+ENV HOST=http://localhost
 
 EXPOSE 3000
 
+COPY package*.json /app/
+
+COPY yarn.lock /app/
+
+COPY --chown=node:node . /app/
+
 RUN yarn install
 
-RUN yarn run build
+RUN yarn build
 
-CMD [ "node", "build/index.js" ]
+CMD [ "node","build/index.js" ]
