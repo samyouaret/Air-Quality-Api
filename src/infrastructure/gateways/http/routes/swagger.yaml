@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: 3.0.0
 info:
   description: "Air quality Api"
   version: 1.0.0
@@ -10,12 +10,14 @@ info:
     name: Apache 2.0
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 basePath: /api
+servers:
+  - url: http://localhost:3000/api
 tags:
   - name: air-quality
     description: Api about air quality
     externalDocs:
       description: Find out more
-      url: "http://swagger.io"
+      url: "http://localhost:3000/docs"
 schemes:
   - http
 paths:
@@ -23,6 +25,19 @@ paths:
     get:
       summary: Retrieve nearest air quality or by lat and lon.
       description: Retrieve list to show all air-quality.
+      parameters:
+        - name: lat
+          in: query
+          description: Latitude
+          required: false
+          type: number
+          format: float
+        - name: lon
+          in: query
+          description: Longitude
+          required: false
+          type: number
+          format: float
       responses:
         200:
           description: A list of air-quality.
@@ -30,29 +45,36 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:
-                  Result:
-                    type: object
-                    pollution:
-                      type: object
-                      properties:
-                        ts:
-                          type: date
-                          description: The date of record.
-                          example: "2021-04-12T00:00:00.000Z"
-                        aqius:
-                          type: integer
-                          description: Air quality index in US.
-                          example: 41
-                        mainus:
-                          type: string
-                          description: Main pollutant in US.
-                          example: "p2"
-                        aqicn:
-                          type: integer
-                          description: Air quality index in China.
-                          example: 16
-                        maincn:
-                          type: string
-                          description: Main pollutant in China.
-                          example: "p2"
+                $ref: "#/components/schemas/QualityResult"
+
+components:
+  schemas:
+    QualityResult:
+      type: object
+      properties:
+        Result:
+          type: object
+          properties:
+            Pollution:
+              type: object
+              properties:
+                ts:
+                  type: date
+                  description: The date of record.
+                  example: "2021-04-12T00:00:00.000Z"
+                aqius:
+                  type: integer
+                  description: Air quality index in US.
+                  example: 41
+                mainus:
+                  type: string
+                  description: Main pollutant in US.
+                  example: "p2"
+                aqicn:
+                  type: integer
+                  description: Air quality index in China.
+                  example: 16
+                maincn:
+                  type: string
+                  description: Main pollutant in China.
+                  example: "p2"
