@@ -1,5 +1,5 @@
-import { AirQualityApiContract } from "./contracts/AirQualityApiContract";
-import { AirQualityResultContract } from "./contracts/AirQualityResultContract";
+import { AirQualityApiContract } from "./AirQualityApiContract";
+import { AirQualityResultContract } from "./AirQualityResultContract";
 const axios = require('axios').default;
 
 export class IqairApi implements AirQualityApiContract{

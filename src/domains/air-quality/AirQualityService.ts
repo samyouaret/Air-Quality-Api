@@ -1,5 +1,5 @@
-import { AirQualityApiContract } from "./contracts/AirQualityApiContract";
-import { AirQualityResultContract } from "./contracts/AirQualityResultContract";
+import { AirQualityApiContract } from "../../infrastructure/airq-api/AirQualityApiContract";
+import { AirQualityResultContract } from "../../infrastructure/airq-api/AirQualityResultContract";
 import { AirQualityServiceContract } from "./contracts/AirQualityServiceContract";
 
 export class AirQualityService implements AirQualityServiceContract {

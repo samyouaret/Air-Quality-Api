@@ -1,5 +1,5 @@
 {
-  "name": "Air Quality",
+  "name": "AirQuality",
   "version": "0.0.1",
   "description": "Air Quality project",
   "main": "app/index.js",
@@ -13,6 +13,8 @@
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/index.js",
     "start:dev": "nodemon",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:reset": "prisma migrate reset --force && prisma migrate deploy",
     "test": "jest -- ./src --runInBand --detectOpenHandles",
     "prepare": "husky install"
   },
@@ -49,6 +51,7 @@
     }
   },
   "dependencies": {
+    "@prisma/client": "^4.7.1",
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -58,6 +61,6 @@
     "swagger-ui-express": "^4.6.0"
   },
   "prisma": {
-    "schema": "./src/database/prisma/schema.prisma"
+    "schema": "./src/infrastructure/databases/schema.prisma"
   }
 }

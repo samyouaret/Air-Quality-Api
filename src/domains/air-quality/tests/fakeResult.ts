@@ -1,4 +1,4 @@
-import { AirQualityResultContract } from "../contracts/AirQualityResultContract";
+import { AirQualityResultContract } from "../../../infrastructure/airq-api/AirQualityResultContract";
 
 export const fakeResult: AirQualityResultContract = {
   Result: {

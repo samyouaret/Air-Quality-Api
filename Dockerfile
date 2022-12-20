@@ -20,4 +20,8 @@ RUN yarn install
 
 RUN yarn build
 
-CMD [ "node","build/index.js" ]
+RUN chmod +x ./startup.sh
+
+RUN yarn run prisma generate
+
+ENTRYPOINT [ "./startup.sh" ]

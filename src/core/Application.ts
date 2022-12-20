@@ -1,10 +1,16 @@
+import { PrismaClient } from '@prisma/client';
 import { ApplicationGatewayContract } from './ApplicationGatewayContract';
 
 export default class Application {
   appGateway: ApplicationGatewayContract;
-
-  constructor(appGateway: ApplicationGatewayContract) {
+  prisma: PrismaClient;
+  constructor(appGateway: ApplicationGatewayContract, prisma: PrismaClient) {
     this.appGateway = appGateway;
+    this.prisma = prisma;
+  }
+
+  getPrisma(): PrismaClient {
+    return this.prisma;
   }
 
   setApplicationGateWay(appGateway: ApplicationGatewayContract): any {
@@ -21,10 +27,12 @@ export default class Application {
     await this.init();
     // eslint-disable-next-line no-console
     console.log('Starting App ...');
-    return this.appGateway.start();
+    await this.appGateway.start();
   }
 
   async init() {
+    await this.prisma.$connect();
+    console.log('Connected to database successfully');
     await this.appGateway.init(this);
   }
 }

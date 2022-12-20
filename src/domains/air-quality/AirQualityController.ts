@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import AirQualityService from './AirQualityService';
 
-export default class AirQuality {
+export default class AirQualityController {
   constructor(private readonly airQualityService: AirQualityService) {}
 
   async get(req: Request, res: Response) {

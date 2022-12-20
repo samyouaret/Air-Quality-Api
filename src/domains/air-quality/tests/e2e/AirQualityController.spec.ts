@@ -3,7 +3,12 @@ import { createExpressApp } from "../../../../infrastructure/gateways/http/Expre
 import request from 'supertest'
 
 const expressApp = createExpressApp();
-const app = new Application(expressApp);
+const prismaMock = {
+    async $connect() {
+        return;
+    }
+}
+const app = new Application(expressApp,prismaMock as any);
 
 beforeAll(async () => {
     await app.init();

@@ -1,5 +1,5 @@
-import { AirQualityApiAbstractFactory } from "./contracts/AirQualityApiAbstractFactory";
-import { AirQualityApiContract } from "./contracts/AirQualityApiContract";
+import { AirQualityApiAbstractFactory } from "../../domains/air-quality-tracker/contracts/AirQualityApiAbstractFactory";
+import { AirQualityApiContract } from "./AirQualityApiContract";
 import { IqairApi } from "./IqairApi";
 
 export class IqairApiFactory implements AirQualityApiAbstractFactory {
