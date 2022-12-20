@@ -16,4 +16,5 @@ beforeAll(async () => {
 
 test('Integration: Should get correct result with Paris city params', (done) => {
     expect(1).toBe(1);
+    done();
 });

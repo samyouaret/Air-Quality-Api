@@ -2,4 +2,8 @@
 
 yarn run prisma migrate deploy
 
-node ./build/index.js
+if [[ "$APP_ENV" == "development" || $APP_ENV == "production" ]]; then
+    node ./build/index.js
+elif [[ "$APP_ENV" == "test" ]]; then
+    yarn run test
+fi
