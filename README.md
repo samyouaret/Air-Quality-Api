@@ -10,7 +10,7 @@ Create an .env file from of env.example
     
     cp .env.example .env
 
-API docs provide a good start to get up and running with the endpoints of the application [Demo docs](http://localhost:3000/api/docs). The API is documented using [openApi]([https://](https://swagger.io/specification/)).
+API docs provide a good start to get up and running with the endpoints of the application [Swagger docs](http://localhost:3000/api/docs). The API is documented using [openApi]([https://](https://swagger.io/specification/)).
 
 ### Using docker-compose
 
