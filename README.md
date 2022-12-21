@@ -145,7 +145,7 @@ Then use docker compose to run `test-docker-compose.yml`
 
 the `--abort-on-container-exit` is necessary to make all containers(the Postgres database container) exist after the tests are finished.
 
-Alternatively, we can use the dev docker-compose.yml file to run the tests, Note that tests will use the Development database, and you need `nodejs` installed.
+Alternatively, we can use the dev docker-compose.yml file to run the tests, Note that tests will use the Development database, and you need to install `nodejs` and `yarn`.
 
     docker compose -f docker-compose.yml up --remove-orphan
 
