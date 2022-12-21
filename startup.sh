@@ -1,5 +1,5 @@
 #!/bin/sh
 
-yarn run prisma migrate deploy
+yarn run migrate:deploy
 
 node ./build/index.js
