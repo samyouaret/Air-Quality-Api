@@ -6,10 +6,7 @@ import Application from "../../../core/Application";
 export interface ExpressConfig {
   port: string | number;
   environment?: string;
-  cors?: boolean;
   helmet?: boolean;
-  openApiDoc?: boolean;
-  view_engine?: string;
 }
 
 export default class ExpressApplication implements ApplicationGatewayContract {
