@@ -137,7 +137,7 @@ Create an .env file from of env.example
     
     cp .env.example .env.testing
 
-Update the `DATABASE_URL` host to `test-db`.
+Update the `DATABASE_URL` host to `test-db`, set `API_KEY` to your IQir API key.
 
 Then use docker compose to run `test-docker-compose.yml`
 
