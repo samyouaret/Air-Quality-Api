@@ -3,7 +3,6 @@ import routes from "./routes";
 import { ApplicationGatewayContract } from "../../../core/ApplicationGatewayContract";
 import Application from "../../../core/Application";
 
-// declare type RouteLoader = (app: Application) => express.Router | express.RequestHandler | express.ErrorRequestHandler;
 export interface ExpressConfig {
   port: string | number;
   environment?: string;

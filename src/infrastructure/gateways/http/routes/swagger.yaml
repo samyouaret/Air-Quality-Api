@@ -21,7 +21,7 @@ tags:
 schemes:
   - http
 paths:
-  /iqair/nearest-city:
+  /iqair:
     get:
       summary: Retrieve nearest air quality or by latitude and longitude.
       description: Retrieve nearest air quality or by latitude and longitude.
@@ -42,15 +42,27 @@ paths:
           format: float
       responses:
         200:
-          description: A list of air-quality.
+          description: A result contains pollution data.
           content:
             application/json:
               schema:
                 type: object
                 $ref: "#/components/schemas/QualityResult"
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: The error message.
+                    example: "latitude and longitude must be numbers"
+
   /iqair/tracker:
     post:
-      summary: create a new air quality tracker record
+      summary: create a new air quality tracker record.
       requestBody:
         description:
         required: true
@@ -113,17 +125,17 @@ paths:
                     type: date
                     description: The date of record.
                     example: "2021-04-12T00:00:00.000Z"
-          400:
-            description: Bad request
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: The error message.
-                      example: "latitude and longitude must be numbers"
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: The error message.
+                    example: "latitude and longitude must be numbers"
 
   /iqair/tracker/max:
     get:

@@ -7,7 +7,7 @@ import { IqairApiFactory } from "../../infrastructure/airq-api/IqairApiFactory";
 
 export default async function AirQualityTrackerRoutes(
   app: ApplicationContract
-): Promise<void> {
+): Promise<void | express.Router> {
   const iqairApiFactory = new IqairApiFactory();
   const iqairApi = iqairApiFactory.create();
   const router: express.Router = express.Router();
@@ -27,5 +27,5 @@ export default async function AirQualityTrackerRoutes(
     trackerController.track.bind(trackerController)
   );
 
-  (app as ApplicationContract).getApplicationGateWay().getServer().use(router);
+  return router;
 }

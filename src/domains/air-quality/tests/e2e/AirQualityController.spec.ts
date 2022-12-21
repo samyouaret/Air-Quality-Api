@@ -3,7 +3,7 @@ import { createExpressApp } from "../../../../infrastructure/gateways/http/Expre
 import request from 'supertest'
 
 const expressApp = createExpressApp();
-const PATH_NAME = "/api/iqair/nearest-city";
+const PATH_NAME = "/api/iqair";
 
 const prismaMock = {
     async $connect() {
@@ -17,7 +17,6 @@ beforeAll(async () => {
 });
 
 test('E2E: Should get correct result with a given latitude and longitude', (done) => {
-    jest.useFakeTimers(); 
     request.agent(app.getApplicationGateWay().getServer())
             .get(PATH_NAME)
             .query({ latitude: 48.856613, longitude: 2.352222 })
