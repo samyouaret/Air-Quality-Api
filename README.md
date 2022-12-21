@@ -2,7 +2,7 @@
 
 ## Running the Application
 
-To Use docker
+Using docker
 
     docker build --tag air-quality . --no-cache
 
