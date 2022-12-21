@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:16-alpine AS builder
 
 WORKDIR /app
 
@@ -18,8 +18,17 @@ RUN yarn install
 
 RUN yarn build
 
-RUN chmod +x ./startup.sh
 
 RUN yarn run prisma generate
 
+FROM builder AS development
+
+RUN chmod +x ./startup.sh
+
 ENTRYPOINT [ "./startup.sh" ]
+
+FROM builder AS test
+
+RUN chmod +x ./test-startup.sh
+
+ENTRYPOINT [ "./test-startup.sh" ]

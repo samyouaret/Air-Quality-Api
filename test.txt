@@ -1,0 +1,62 @@
+.
+├── build
+│   ├── core
+│   ├── domains
+│   │   ├── air-quality
+│   │   │   ├── contracts
+│   │   │   └── tests
+│   │   │       ├── e2e
+│   │   │       ├── integration
+│   │   │       └── unit
+│   │   └── air-quality-tracker
+│   │       ├── contracts
+│   │       └── tests
+│   │           ├── e2e
+│   │           ├── integration
+│   │           └── unit
+│   └── infrastructure
+│       ├── airq-api
+│       ├── databases
+│       │   └── config
+│       └── gateways
+│           └── http
+│               └── routes
+├── coverage
+│   ├── air-quality
+│   │   └── tests
+│   ├── core
+│   ├── domains
+│   │   ├── air-quality
+│   │   │   └── tests
+│   │   └── air-quality-tracker
+│   └── infrastructure
+│       ├── airq-api
+│       └── gateways
+│           └── http
+│               └── routes
+└── src
+    ├── core
+    ├── domains
+    │   ├── air-quality
+    │   │   ├── contracts
+    │   │   └── tests
+    │   │       ├── e2e
+    │   │       ├── integration
+    │   │       └── unit
+    │   └── air-quality-tracker
+    │       ├── contracts
+    │       └── tests
+    │           ├── e2e
+    │           ├── integration
+    │           └── unit
+    └── infrastructure
+        ├── airq-api
+        ├── databases
+        │   ├── config
+        │   └── migrations
+        │       └── 20221220171215_init
+        └── gateways
+            └── http
+                └── routes
+
+59 directories

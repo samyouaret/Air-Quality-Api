@@ -1,5 +1,5 @@
 import { IqairApiFactory } from "../../../../infrastructure/airq-api/IqairApiFactory";
 
-test('Integration: Should get correct result with Paris city params', async() => {
+test('Integration: Should save tracking record in db', async() => {
     expect(1).toBe(1);
 });
