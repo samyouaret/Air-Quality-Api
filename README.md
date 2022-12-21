@@ -72,6 +72,7 @@ Add Execution permissions
 ### Register the cron job
 
 First edit the crontab file run
+
     crontab -e
 
 Then Add a job that run every 1 minute the last of the file, and save the file.
