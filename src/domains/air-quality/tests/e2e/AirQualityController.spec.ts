@@ -18,7 +18,7 @@ test('Integration: Should get correct result with Paris city params', (done) => 
     jest.useFakeTimers(); 
     request.agent(app.getApplicationGateWay().getServer())
             .get(`/api/air-quality`)
-            .query({ lat: 48.856613, lon: 2.352222 })
+            .query({ latitude: 48.856613, longitude: 2.352222 })
             .expect(200)
             .end(function (err: any, res: any) {
                 const result = res.body;
