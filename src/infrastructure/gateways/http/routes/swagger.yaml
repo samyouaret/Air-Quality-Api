@@ -12,19 +12,17 @@ info:
 basePath: /api
 servers:
   - url: http://localhost:3000/api
+  - url: http://35.172.154.183:3000/api
 tags:
   - name: air-quality
-    description: Api about air quality
-    externalDocs:
-      description: Find out more
-      url: "http://localhost:3000/docs"
+    description: An API BOUT global air quality data.
 schemes:
   - http
 paths:
   /iqair:
     get:
-      summary: Retrieve nearest air quality by latitude and longitude.
-      description: Retrieve nearest air quality by latitude and longitude.
+      summary: Retrieve the nearest air quality by latitude and longitude.
+      description: Retrieve the nearest air quality by latitude and longitude.
       parameters:
         - name: latitude
           in: query

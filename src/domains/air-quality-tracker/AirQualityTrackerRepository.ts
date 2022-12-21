@@ -38,10 +38,16 @@ export default class AirQualityTrackerRepository {
         aqius: true,
       },
     });
+    if (result[0]) {
+      return {
+        aqius: result[0]._max.aqius,
+        ts: result[0].ts,
+      };
+    }
 
     return {
-      aqius: result[0]._max.aqius,
-      ts: result[0].ts,
+      aqius: 0,
+      ts: new Date(0),
     };
   }
 }
