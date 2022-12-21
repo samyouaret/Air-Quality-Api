@@ -23,8 +23,8 @@ schemes:
 paths:
   /iqair:
     get:
-      summary: Retrieve nearest air quality or by latitude and longitude.
-      description: Retrieve nearest air quality or by latitude and longitude.
+      summary: Retrieve nearest air quality by latitude and longitude.
+      description: Retrieve nearest air quality by latitude and longitude.
       parameters:
         - name: latitude
           in: query

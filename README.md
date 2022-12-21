@@ -2,11 +2,11 @@
 
 ## Getting Started
 
-For a quick setup, the application can be built and run with **Docker** and `docker-compose`, building the application image. you can start by cloning this repository.
+For a quick setup, the application can be built and run with **Docker** and `docker-compose` you can start by cloning this repository.
 
     git clone https://github.com/samyouaret/air-Quality-Api.git
 
-API docs provide a good start to get up and running with the endpoints of the application [Demo docs](http://localhost:3000/api/docs). The Api is documented using [openApi]([https://](https://swagger.io/specification/)).
+API docs provide a good start to get up and running with the endpoints of the application [Demo docs](http://localhost:3000/api/docs). The API is documented using [openApi]([https://](https://swagger.io/specification/)).
 
 ### Using docker-compose
 
@@ -14,7 +14,7 @@ Using Docker compose
 
     docker compose -f docker-compose.yml up --remove-orphans --build
 
-to Avoid conflict with tests containers we use the flag `--remove-orphans`.
+to Avoid conflict with test containers we use the flag `--remove-orphans`.
 
 ## Application project structure
 
@@ -46,7 +46,7 @@ to Avoid conflict with tests containers we use the flag `--remove-orphans`.
                 └── routes
 ```
 
-The application structure is a simple layered architecture that strives for low coupling, better Testability and maintenance
+The application structure is a simple layered architecture that strives for low coupling, better Testability, and maintenance
 
 it Contains an HTTP server that acts as a **Gateway** for our application.
 
@@ -58,10 +58,9 @@ Services hold the business logic, although our application has only a few concer
 
 Back to the root application, it is the starting point to run the application, it manages an **Application gateway** which in our case we are using **expressjs**.
 
-and a Database (prisma).
 ## Setup Cron job
 
-To setup the cron job, first we need to add to bins directory to avoid using relative paths.
+To set up the cron job, first, we need to add it to the bin directory to avoid using relative paths.
 
     cp air-quality-job.sh /usr/bin/
 
@@ -71,11 +70,15 @@ Add Execution permissions
 
 ### Register the cron job
 
-First edit the crontab file run
+The easiest way is to add crontab.sh to the system cron jobs
+
+    crontab crontab.sh
+
+Alternatively, edit the crontab file by  running
 
     crontab -e
 
-Then Add a job that run every 1 minute the last of the file, and save the file.
+Then Add a job that runs every 1 minute at the end of the file, and save the file.
 
     * * * * * /usr/bin/air-quality-job.sh
 
@@ -87,12 +90,12 @@ you should see `* * * * * /usr/bin/air-quality-job.sh` at the end of the output/
 
 ## Running test
 
-To run tests inside using docker compose, note the `--abort-on-container-exit` is necessary to make all containers(the postgres database container) exist after the tests finished.
+To run tests inside using docker-compose, note the `--abort-on-container-exit` is necessary to make all containers(the Postgres database container) exist after the tests are finished.
 
     docker-compose -f test-docker-compose.yml up 
     --abort-on-container-exit
 
-Alternatively we can use the dev docker-compose.yml file to run the tests, Note that tests will use the Development database
+Alternatively, we can use the dev docker-compose.yml file to run the tests, Note that tests will use the Development database
     
     docker-compose -f docker-compose.yml up --remove-orphan --abort-on-container-exit
 
@@ -100,6 +103,6 @@ Then simply run
 
     yarn run test
 
-**Note**: by Default docker compose will try to run orphan containers within the same project. the new version included as a command will raise a warning, while the old docker-compose will run them.
+**Note**: by Default, docker-compose will try to run orphan containers within the same project. the new version included as a command will raise a warning, while the old docker-compose will run them.
 
-to Avoid this conflicts add the flag `--remove-orphans`.
+to Avoid these conflicts add the flag `--remove-orphans`.
