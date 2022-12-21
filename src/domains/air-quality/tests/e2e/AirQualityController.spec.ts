@@ -3,7 +3,7 @@ import { createExpressApp } from "../../../../infrastructure/gateways/http/Expre
 import request from 'supertest'
 
 const expressApp = createExpressApp();
-const PATH_NAME = '/api/airq/nearest-city';
+const PATH_NAME = "/api/iqair/nearest-city";
 
 const prismaMock = {
     async $connect() {

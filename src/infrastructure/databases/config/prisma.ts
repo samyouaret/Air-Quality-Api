@@ -1,24 +1,24 @@
-import { PrismaClientOptions } from '@prisma/client/runtime';
+import { PrismaClientOptions } from "@prisma/client/runtime";
 
 export const development: PrismaClientOptions = {
-    datasources: {
-        db: {
-            url: process.env.DATABASE_URL
-        },
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL,
     },
-    log: ['query', 'info'],
-}
+  },
+  log: ["query", "info"],
+};
 export const test: PrismaClientOptions = {
-    datasources: {
-        db: {
-            url: process.env.DATABASE_URL_TEST
-        },
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL_TEST,
     },
-}
+  },
+};
 export const production: PrismaClientOptions = {
-    datasources: {
-        db: {
-            url: process.env.DATABASE_URL_PRODUCTION
-        },
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL_PRODUCTION,
     },
-}
+  },
+};

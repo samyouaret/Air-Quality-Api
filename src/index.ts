@@ -1,3 +1,3 @@
-import bootstrap from './core/bootstrap';
+import bootstrap from "./core/bootstrap";
 
 bootstrap.start();

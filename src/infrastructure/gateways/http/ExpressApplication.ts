@@ -1,7 +1,7 @@
-import express from 'express';
-import routes from './routes';
-import { ApplicationGatewayContract } from '../../../core/ApplicationGatewayContract';
-import Application from '../../../core/Application';
+import express from "express";
+import routes from "./routes";
+import { ApplicationGatewayContract } from "../../../core/ApplicationGatewayContract";
+import Application from "../../../core/Application";
 
 // declare type RouteLoader = (app: Application) => express.Router | express.RequestHandler | express.ErrorRequestHandler;
 export interface ExpressConfig {
@@ -13,8 +13,7 @@ export interface ExpressConfig {
   view_engine?: string;
 }
 
-export default class ExpressApplication implements ApplicationGatewayContract
-{
+export default class ExpressApplication implements ApplicationGatewayContract {
   server: express.Express;
   private config: ExpressConfig;
 
@@ -33,7 +32,7 @@ export default class ExpressApplication implements ApplicationGatewayContract
 
   async init(application: Application): Promise<void> {
     if (this.config.helmet) {
-      const helmet = await import('helmet');
+      const helmet = await import("helmet");
       this.server.use(helmet.default());
     }
     await this.loadRoutes(application);
@@ -42,7 +41,7 @@ export default class ExpressApplication implements ApplicationGatewayContract
   async loadRoutes(application: Application) {
     routes.forEach(async (route: any) => {
       let router: express.Router | undefined = await route(application);
-      if (router instanceof express.Router || typeof router === 'function') {
+      if (router instanceof express.Router || typeof router === "function") {
         this.server.use(router);
       }
     });

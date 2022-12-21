@@ -1,6 +1,6 @@
-import ExpressApplication from './ExpressApplication';
-import express from 'express';
-import { ApplicationGatewayContract } from '../../../core/ApplicationGatewayContract';
+import ExpressApplication from "./ExpressApplication";
+import express from "express";
+import { ApplicationGatewayContract } from "../../../core/ApplicationGatewayContract";
 
 export function createExpressApp(): ApplicationGatewayContract {
   const server = express();
@@ -9,7 +9,7 @@ export function createExpressApp(): ApplicationGatewayContract {
     cors: false,
     helmet: true,
     openApiDoc: true,
-    port: process.env.APP_PORT as string
+    port: process.env.APP_PORT as string,
   });
 
   return expressApp;

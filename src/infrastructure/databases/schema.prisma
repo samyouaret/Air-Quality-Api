@@ -11,7 +11,7 @@ datasource db {
 }
 
 model AirQualityTracker {
-  id       String   @id @default(uuid())
+  id        String   @id @default(uuid())
   latitude  Float
   longitude Float
   ts        DateTime

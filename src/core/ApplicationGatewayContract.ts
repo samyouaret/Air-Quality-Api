@@ -1,4 +1,4 @@
-import Application from './Application';
+import Application from "./Application";
 
 export interface ApplicationGatewayContract {
   init(application: Application): Promise<void>;

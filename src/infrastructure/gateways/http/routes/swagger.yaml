@@ -21,10 +21,10 @@ tags:
 schemes:
   - http
 paths:
-  /airq:
+  /iqair/nearest-city:
     get:
-      summary: Retrieve nearest air quality or by lat and lon.
-      description: Retrieve list to show all air-quality.
+      summary: Retrieve nearest air quality or by latitude and longitude.
+      description: Retrieve nearest air quality or by latitude and longitude.
       parameters:
         - name: latitude
           in: query
@@ -46,6 +46,126 @@ paths:
               schema:
                 type: object
                 $ref: "#/components/schemas/QualityResult"
+  /iqair/tracker:
+    post:
+      summary: create a new air quality tracker record
+      requestBody:
+        description:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                latitude:
+                  type: number
+                  format: float
+                  example: 48.856613
+                longitude:
+                  type: number
+                  format: float
+                  example: 2.352222
+      responses:
+        200:
+          description: A IQair pollution record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The id of the record.
+                    example: "60e1f9f0-8b5e-11eb-8dcd-0242ac130003"
+                  latitude:
+                    type: number
+                    format: float
+                    description: The latitude of the record.
+                    example: 48.856613
+                  longitude:
+                    type: number
+                    format: float
+                    description: The longitude of the record.
+                    example: 2.352222
+                  ts:
+                    type: date
+                    description: The date of record.
+                    example: "2021-04-12T00:00:00.000Z"
+                  aqius:
+                    type: integer
+                    description: Air quality index in US.
+                    example: 41
+                  mainus:
+                    type: string
+                    description: Main pollutant in US.
+                    example: "p2"
+                  aqicn:
+                    type: integer
+                    description: Air quality index in China.
+                    example: 16
+                  maincn:
+                    type: string
+                    description: Main pollutant in China.
+                    example: "p2"
+                  createdAt:
+                    type: date
+                    description: The date of record.
+                    example: "2021-04-12T00:00:00.000Z"
+          400:
+            description: Bad request
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                      description: The error message.
+                      example: "latitude and longitude must be numbers"
+
+  iqair/tracker/max:
+    get:
+      summary: get max air quality tracked by latitude and longitude
+      parameters:
+        - name: latitude
+          in: query
+          description: Latitude
+          required: true
+          type: number
+          format: float
+        - name: longitude
+          in: query
+          description: Longitude
+          required: true
+          type: number
+          format: float
+      responses:
+        200:
+          description: max IQair pollution record tracked by latitude and longitude.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ts:
+                    type: date
+                    description: The date of record.
+                    example: "2021-04-12T00:00:00.000Z"
+                    aqius:
+                      type: integer
+                      description: Air quality index in US.
+                      example: 41
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: The error message.
+                    example: "latitude and longitude must be numbers"
 
 components:
   schemas:
