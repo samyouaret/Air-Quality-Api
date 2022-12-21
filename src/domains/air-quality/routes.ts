@@ -10,7 +10,7 @@ export default async function (app: ApplicationContract): Promise<void> {
   const service = new AirQualityService(iqairApi);
   const controller: AirQualityController = new AirQualityController(service);
   const router: express.Router = express.Router();
-  router.get('/api/air-quality', controller.get.bind(controller));
+  router.get('/api/air-quality', controller.getNearestCity.bind(controller));
 
   (app as ApplicationContract).getApplicationGateWay().getServer().use(router);
 }

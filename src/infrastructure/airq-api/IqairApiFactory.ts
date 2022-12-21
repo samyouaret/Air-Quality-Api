@@ -1,4 +1,4 @@
-import { AirQualityApiAbstractFactory } from "../../domains/air-quality-tracker/contracts/AirQualityApiAbstractFactory";
+import { AirQualityApiAbstractFactory } from "./AirQualityApiAbstractFactory";
 import { AirQualityApiContract } from "./AirQualityApiContract";
 import { IqairApi } from "./IqairApi";
 

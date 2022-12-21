@@ -1,14 +1,14 @@
-import { PrismaClient } from '@prisma/client';
+import { AirQualityTracker, PrismaClient } from '@prisma/client';
 
 
 export default class AirQualityTrackerRepository {
     constructor(private readonly prisma: PrismaClient) {}
     
-    async save(lat: number, lon: number, record:AirQualityTrackerRecord):Promise<any> {
+    async save(latitude: number, longitude: number, record: AirQualityTrackerRecord):Promise<AirQualityTracker | undefined> {
         return this.prisma.airQualityTracker.create({
             data: {
-                longitude:lat,
-                latitude: lon,
+                longitude,
+                latitude,
                 ts: record.ts,
                 aqius: record.aqius,
                 aqicn: record.aqicn,
@@ -18,12 +18,12 @@ export default class AirQualityTrackerRepository {
         });
     }
 
-    getWorstAirQuality(lat: number, lon: number, ts: string): any {
+    getWorstAirQuality(latitude: number, longitude: number, ts: string): any {
       return this.prisma.airQualityTracker.aggregate({
             where: {
-                latitude: lat,
-                longitude: lon,
-                ts: ts,
+                latitude: latitude,
+                longitude: longitude,
+                ts: new Date(ts),
             },
             _max: {
                 aqius: true,

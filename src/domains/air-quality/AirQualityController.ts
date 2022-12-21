@@ -4,9 +4,9 @@ import AirQualityService from './AirQualityService';
 export default class AirQualityController {
   constructor(private readonly airQualityService: AirQualityService) {}
 
-  async get(req: Request, res: Response) {
-    const lat = parseFloat(req.query.lat as string);
-    const lon = parseFloat(req.query.lon as string);
-    res.json(await this.airQualityService.getByNearestCity(lat, lon));
+  async getNearestCity(req: Request, res: Response) {
+    const latitude = parseFloat(req.query.latitude as string);
+    const longitude = parseFloat(req.query.longitude as string);
+    res.json(await this.airQualityService.getByNearestCity(latitude, longitude));
   }
 }
