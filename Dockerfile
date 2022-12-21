@@ -8,8 +8,6 @@ USER node
 
 EXPOSE 3000
 
-COPY package*.json /app/
-
 COPY yarn.lock /app/
 
 COPY --chown=node:node . /app/
@@ -17,7 +15,6 @@ COPY --chown=node:node . /app/
 RUN yarn install
 
 RUN yarn build
-
 
 RUN yarn run prisma generate
 
@@ -30,5 +27,6 @@ ENTRYPOINT [ "./startup.sh" ]
 FROM builder AS test
 
 RUN chmod +x ./test-startup.sh
-
+# override prisma .env
+COPY  .env.testing .env
 ENTRYPOINT [ "./test-startup.sh" ]

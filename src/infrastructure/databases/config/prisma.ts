@@ -11,7 +11,7 @@ export const development: PrismaClientOptions = {
 export const test: PrismaClientOptions = {
   datasources: {
     db: {
-      url: process.env.DATABASE_URL_TEST,
+      url: process.env.DATABASE_URL,
     },
   },
 };

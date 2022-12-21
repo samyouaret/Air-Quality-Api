@@ -80,8 +80,8 @@ paths:
                   format: float
                   example: 2.352222
       responses:
-        200:
-          description: A IQair pollution record.
+        201:
+          description: An IQair pollution tracking record created.
           content:
             application/json:
               schema:

@@ -11,7 +11,7 @@
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/index.js",
     "migrate:deploy": "prisma migrate deploy",
-    "migrate:reset": "prisma migrate reset --force && prisma migrate deploy",
+    "migrate:reset": "prisma migrate reset --force && prisma migrate dev",
     "test": "jest -- ./src --runInBand --detectOpenHandles"
   },
   "devDependencies": {
