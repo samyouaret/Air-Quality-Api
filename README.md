@@ -78,7 +78,8 @@ The `domains` directory contains apps to server the requests, here we have an ai
 
 Each domain has its own `contracts` which contain interfaces used by the domain. it has also a `tests` directory that includes unit/integrations/E2E tests.
 
-a domain Usually has a `controller`, a `service`, and optionally a database if it needs db access like `iqair-tracker`.
+a domain Usually has a `controller`, a `service`, and optionally a Repository if it needs 
+DB access like the `iqair-tracker`.
 
 A repository maintains Access to the database.
 
