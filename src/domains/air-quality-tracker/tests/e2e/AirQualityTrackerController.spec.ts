@@ -6,6 +6,7 @@ import { createPrisma } from "../../../../infrastructure/databases/createPrisma"
 const prisma = createPrisma();
 const expressApp = createExpressApp();
 const app = new Application(expressApp,prisma);
+const PATH_NAME = '/api/airq/tracker';
 
 beforeAll(async () => {
     await app.init();
@@ -21,10 +22,10 @@ afterEach(async() => {
 
 test('E2E: Should Track given latitude and longitude', (done) => {
     request.agent(app.getApplicationGateWay().getServer())
-            .post(`/api/tracker`)
+            .post(PATH_NAME)
             .set('Content-Type', 'application/json')
             .send({ latitude: 48.856613, longitude: 2.352222 })
-            .expect(200)
+            .expect(201)
             .end(function (err: any, res: any) {
                 const result = res.body;
                 expect(err).toBeFalsy();

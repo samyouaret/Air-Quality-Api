@@ -7,10 +7,11 @@ export default class AirQualityTrackerController {
   async track (req: Request, res: Response) {
     const latitude = parseFloat(req.body.latitude);
     const longitude = parseFloat(req.body.longitude);
+    res.status(201);
     res.json(await this.airQualityService.track(latitude, longitude));
   }
 
-  async getWorstAirQuality(req: Request, res: Response) {
+  async getAirQuality(req: Request, res: Response) {
     const latitude = parseFloat(req.query.latitude as string);
     const longitude = parseFloat(req.query.longitude as string);
     res.json(await this.airQualityService.getWorstAirQualityTs(latitude, longitude));

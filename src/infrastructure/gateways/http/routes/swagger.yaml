@@ -21,7 +21,7 @@ tags:
 schemes:
   - http
 paths:
-  /air-quality:
+  /airq:
     get:
       summary: Retrieve nearest air quality or by lat and lon.
       description: Retrieve list to show all air-quality.
