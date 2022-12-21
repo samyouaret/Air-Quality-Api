@@ -139,8 +139,7 @@ Create an .env file from of env.example
 
 Then use docker compose to run `test-docker-compose.yml`
 
-    docker compose -f test-docker-compose.yml up 
-     --remove-orphans --abort-on-container-exit
+    docker compose -f test-docker-compose.yml up --remove-orphans --abort-on-container-exit
 
 the `--abort-on-container-exit` is necessary to make all containers(the Postgres database container) exist after the tests are finished.
 
