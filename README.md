@@ -23,7 +23,7 @@ To run without docker, a postgres database is needed, then run
 
     yarn run test
 
-**Note**: by Default docker compose will try to roun orphan containers within the same project. the new version included as a command will raise a warning, while the old docker-compose will run them.
+**Note**: by Default docker compose will try to run orphan containers within the same project. the new version included as a command will raise a warning, while the old docker-compose will run them.
 
 to Avoid this conflicts add the flag `--remove-orphans` or add the option `p` with a project name.
 
@@ -52,9 +52,34 @@ to Avoid this conflicts add the flag `--remove-orphans` or add the option `p` wi
         ├── databases
         │   ├── config
         │   └── migrations
-        │       └── 20221220171215_init
         └── gateways
             └── http
                 └── routes
 
 ```
+
+
+## Setup Cron job
+
+To setup the cron job, first we need to add to bins directory to avoid using relative paths.
+
+    cp air-quality-job.sh /usr/bin/
+
+Add Execution permissions
+
+    chmod +x /usr/bin/air-quality-job.sh
+
+### Register the cron job
+
+First edit the crontab file run
+    crontab -e
+
+Then Add a job that run every 1 minute the last of the file, and save the file.
+
+    * * * * * /usr/bin/air-quality-job.sh
+
+To Confirm that the cron tab has been added successfully run
+
+    crontab -l
+
+you should see `* * * * * /usr/bin/air-quality-job.sh` at the end of the output.
