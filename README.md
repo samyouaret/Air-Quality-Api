@@ -34,7 +34,6 @@ src/
 │   │   ├── AirQualityController.ts
 │   │   ├── AirQualityService.ts
 │   │   ├── contracts
-│   │   │   └── AirQualityServiceContract.ts
 │   │   ├── routes.ts
 │   │   └── tests
 │   │       ├── e2e
@@ -66,9 +65,7 @@ src/
             ├── ExpressApplication.ts
             ├── ExpressFactory.ts
             ├── routes
-            │   ├── index.ts
             │   ├── swagger.ts
-            │   └── swagger.yaml
             └── routes.ts
 ```
 
