@@ -6,11 +6,12 @@ export class AirQualityTrackerService {
 
   async track(longitude:number, latitude:number):Promise<any> {
     let result = await this.api.getNearestCity(longitude, latitude);
+    
     return await this.repository.save(longitude, latitude, result.Result.pollution);
   }
 
-  getWorstAirQuality(lat: number, lon: number,ts:string): any {
-        return this.repository.getWorstAirQuality(lat, lon,ts);
+  getWorstAirQualityTs(latitude: number, longitude: number): any {
+    return this.repository.getWorstAirQualityTs(latitude, longitude);
   }
 }
 

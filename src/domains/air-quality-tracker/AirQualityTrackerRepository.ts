@@ -18,16 +18,16 @@ export default class AirQualityTrackerRepository {
         });
     }
 
-    getWorstAirQuality(latitude: number, longitude: number, ts: string): any {
-      return this.prisma.airQualityTracker.aggregate({
-            where: {
-                latitude: latitude,
-                longitude: longitude,
-                ts: new Date(ts),
-            },
-            _max: {
-                aqius: true,
-            },
+    getWorstAirQualityTs(latitude: number, longitude: number): any {
+      return this.prisma.airQualityTracker.groupBy({
+        by: ['ts'],
+        where: {
+            latitude: latitude,
+            longitude: longitude,
+        },
+        _max: {
+            aqius: true,
+        },
         });
     }
 }
