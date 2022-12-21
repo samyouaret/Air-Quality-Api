@@ -15,7 +15,8 @@ export default async function AirQualityTrackerRoutes(app: ApplicationContract):
   const trackerController: AirQualityTrackerController = new AirQualityTrackerController(trackerService);
 
   router.get('/api/tracker/worst', trackerController.getWorstAirQuality.bind(trackerController));
-  router.get('/api/tracker', trackerController.get.bind(trackerController));
+  router.use(express.json());
+  router.post('/api/tracker', trackerController.track.bind(trackerController));
 
   (app as ApplicationContract).getApplicationGateWay().getServer().use(router);
 }

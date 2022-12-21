@@ -1,9 +1,7 @@
 #!/bin/sh
 
-yarn run prisma migrate deploy
-
 if [ "$APP_ENV" = "development" ]; then
-    node ./build/index.js
+    echo "hello dev"
 elif [ "$APP_ENV" = "test" ]; then
-    yarn run test
+    echo "hello test"
 fi

@@ -6,8 +6,6 @@ RUN chown -R node:node /app
 
 USER node
 
-ENV HOST=http://localhost
-
 EXPOSE 3000
 
 COPY package*.json /app/
