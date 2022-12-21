@@ -15,7 +15,7 @@ servers:
   - url: http://35.172.154.183:3000/api
 tags:
   - name: air-quality
-    description: An API BOUT global air quality data.
+    description: An API about global air quality data.
 schemes:
   - http
 paths:
@@ -60,7 +60,7 @@ paths:
 
   /iqair/tracker:
     post:
-      summary: create a new air quality tracker record.
+      summary: Create a new air quality tracker record.
       requestBody:
         description:
         required: true
@@ -137,7 +137,7 @@ paths:
 
   /iqair/tracker/max:
     get:
-      summary: get max air quality tracked by latitude and longitude
+      summary: get max air quality tracked by latitude and longitude.
       parameters:
         - name: latitude
           in: query
