@@ -12,6 +12,10 @@ Using Docker compose
 
     docker compose -f docker-compose.yml -d -p air-quality-api
 
+## Docs
+
+The Api is documented using [openApi]([https://](https://swagger.io/specification/)) specification, the docs could be found on `{url}/api/docs/`
+
 ## Running test
 
 To run tests inside using docker compose, note the `--abort-on-container-exit` is necessary to make all containers(the postgres database container) exist after the tests finished.
