@@ -3,6 +3,7 @@ import AirQualityTrackerService from './AirQualityTrackerService';
 
 export default class AirQualityTrackerController {
   constructor(private readonly airQualityService: AirQualityTrackerService) {}
+  
   async track (req: Request, res: Response) {
     const latitude = parseFloat(req.body.latitude);
     const longitude = parseFloat(req.body.longitude);
