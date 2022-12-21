@@ -22,15 +22,15 @@ afterAll(async () => {
 });
 
 test('Integration: Should save tracking record in db', async() => {
-    const result = await service.track(48.856613, 2.3522219);
+    const result = await service.track(48.856613, 2.352222);
     expect(result).toBeDefined();
     const newRecord = await prisma.airQualityTracker.findFirst({
         where: {
             latitude: 48.856613,
-            longitude: 2.3522219
+            longitude: 2.352222
         }
     });
     expect(newRecord).toBeDefined();
     expect(newRecord?.latitude).toBe(48.856613);
-    expect(newRecord?.longitude).toBe(2.3522219);
+    expect(newRecord?.longitude).toBe(2.352222);
 });

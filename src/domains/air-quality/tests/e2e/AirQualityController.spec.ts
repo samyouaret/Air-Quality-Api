@@ -14,7 +14,7 @@ beforeAll(async () => {
     await app.init();
 });
 
-test('Integration: Should get correct result with Paris city params', (done) => {
+test('E2E: Should get correct result with a given latitude and longitude', (done) => {
     jest.useFakeTimers(); 
     request.agent(app.getApplicationGateWay().getServer())
             .get(`/api/air-quality`)
