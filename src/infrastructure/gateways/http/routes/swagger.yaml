@@ -29,13 +29,15 @@ paths:
         - name: latitude
           in: query
           description: Latitude
-          required: false
+          required: true
           type: number
           format: float
+          example: 48.856613
         - name: longitude
           in: query
           description: Longitude
-          required: false
+          required: true
+          example: 2.352222
           type: number
           format: float
       responses:
@@ -123,7 +125,7 @@ paths:
                       description: The error message.
                       example: "latitude and longitude must be numbers"
 
-  iqair/tracker/max:
+  /iqair/tracker/max:
     get:
       summary: get max air quality tracked by latitude and longitude
       parameters:
@@ -133,10 +135,12 @@ paths:
           required: true
           type: number
           format: float
+          example: 48.856613
         - name: longitude
           in: query
           description: Longitude
           required: true
+          example: 2.352222
           type: number
           format: float
       responses:
@@ -151,10 +155,10 @@ paths:
                     type: date
                     description: The date of record.
                     example: "2021-04-12T00:00:00.000Z"
-                    aqius:
-                      type: integer
-                      description: Air quality index in US.
-                      example: 41
+                  aqius:
+                    type: integer
+                    description: Air quality index in US.
+                    example: 41
         400:
           description: Bad request
           content:
