@@ -6,6 +6,10 @@ For a quick setup, the application can be built and run with **Docker** and `doc
 
     git clone https://github.com/samyouaret/air-Quality-Api.git
 
+Create an .env file from of env.example
+    
+    cp .env.example .env
+
 API docs provide a good start to get up and running with the endpoints of the application [Demo docs](http://localhost:3000/api/docs). The API is documented using [openApi]([https://](https://swagger.io/specification/)).
 
 ### Using docker-compose
@@ -90,10 +94,18 @@ you should see `* * * * * /usr/bin/air-quality-job.sh` at the end of the output/
 
 ## Running test
 
-To run tests inside using docker-compose, the `--abort-on-container-exit` is necessary to make all containers(the Postgres database container) exist after the tests are finished.
+To run tests inside using docker-compose, first create testing env file
+
+Create an .env file from of env.example
+    
+    cp .env.example .env.testing
+
+Then use docker compose to run `test-docker-compose.yml`
 
     docker-compose -f test-docker-compose.yml up 
     --abort-on-container-exit
+
+the `--abort-on-container-exit` is necessary to make all containers(the Postgres database container) exist after the tests are finished.
 
 Alternatively, we can use the dev docker-compose.yml file to run the tests, Note that tests will use the Development database
     

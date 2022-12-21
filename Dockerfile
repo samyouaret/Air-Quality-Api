@@ -14,9 +14,10 @@ COPY --chown=node:node . /app/
 
 RUN yarn install
 
+RUN yarn run prisma generate
+
 RUN yarn build
 
-RUN yarn run prisma generate
 
 FROM builder AS development
 
