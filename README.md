@@ -90,7 +90,7 @@ you should see `* * * * * /usr/bin/air-quality-job.sh` at the end of the output/
 
 ## Running test
 
-To run tests inside using docker-compose, note the `--abort-on-container-exit` is necessary to make all containers(the Postgres database container) exist after the tests are finished.
+To run tests inside using docker-compose, the `--abort-on-container-exit` is necessary to make all containers(the Postgres database container) exist after the tests are finished.
 
     docker-compose -f test-docker-compose.yml up 
     --abort-on-container-exit
