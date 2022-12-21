@@ -137,6 +137,8 @@ Create an .env file from of env.example
     
     cp .env.example .env.testing
 
+Update the `DATABASE_URL` host to `test-db`.
+
 Then use docker compose to run `test-docker-compose.yml`
 
     docker compose -f test-docker-compose.yml up --remove-orphans --abort-on-container-exit
